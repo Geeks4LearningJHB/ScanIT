@@ -1,11 +1,11 @@
 import React from "react ";
 import { View, TouchableOpacity, Text } from "react-native";
 
-const viewProfile = () => {
+const signUp = () => {
   return (
     <View>
-      <Text>View Profile Works</Text>
+      <Text>Sign Up Works</Text>
     </View>
   );
 };
-export default viewProfile;
+export default signUp;
