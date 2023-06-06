@@ -4,7 +4,7 @@ const ExternalStyles = StyleSheet.create({
   container: {
     alignItems: "center",
     width: "90%",
-    margin: "5%",
+    margin: 5,
     paddingBottom: "5%",
     paddingTop: "5%",
     backgroundColor: "gray",
@@ -12,7 +12,7 @@ const ExternalStyles = StyleSheet.create({
   },
   Input: {
     marginBottom: 20,
-    width: "35%",
+    width: "65%",
     height: 40,
     background: "#FFFFFF",
     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
@@ -29,7 +29,9 @@ const ExternalStyles = StyleSheet.create({
     boxShadow:
     "0px 4px 4px rgba(0, 0, 0, 0.25),0px 4px 4px rgba(0, 0, 0, 0.25),0px 4px 4px rgba(0, 0, 0, 0.25)",
     borderRadius: 100,
-    marginBottom: 55,
+    marginBottom: 35,
+    marginTop:20
+
   },
   Button: {
     marginBottom: 20,
@@ -39,15 +41,14 @@ const ExternalStyles = StyleSheet.create({
     backgroundColor: "darkseagreen",
     boxShadow:
       "0px 4px 4px rgba(0, 0, 0, 0.25),0px 4px 4px rgba(0, 0, 0, 0.25),0px 4px 4px rgba(0, 0, 0, 0.25)",
-    borderRadius: "5px",
+    borderRadius: 5,
     alignItems: "center",
     paddingTop: 10,
     textTransform: "uppercase",
     marginStart: 10,
   },
   headingStyle: {
-    fontFamily: "Roboto",
-    fontSize: "15px",
+    fontSize: 15,
     fontWeight: "bold",
     marginBottom: 3,
     marginEnd: 3,

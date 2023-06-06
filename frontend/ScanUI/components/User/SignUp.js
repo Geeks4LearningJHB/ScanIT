@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React, {  useState } from "react";
 import {
   View,
   TouchableOpacity,
@@ -65,64 +65,75 @@ const signUp = ({ navigation }) => {
     } else if (!isValidEmail(email)) {
       alert("Email address must contain @ charecter ");
     } else {
-      handleSignUp();
-      navigation.navigate("login");
+      // handleSignUp();
+      // navigation.navigate("login");
+      alert("signed in")
     }
   };
   return (
-    <SafeAreaView>
-      <View>
-        <Text>Sign In</Text>
+    <SafeAreaView style={Styles.container}>
+      <View style={Styles.LogoView}>
+        <Text style={Styles.headingStyle}>Sign In</Text>
       </View>
 
       <TextInput
         placeholder="Name"
+        style={Styles.Input}
         onChangeText={(value) => {
           setName(value);
         }}
       />
       <TextInput
         placeholder="Surname"
+        style={Styles.Input}
         onChangeText={(value) => {
           setSurname(value);
         }}
       />
       <TextInput
         placeholder="Email"
+        style={Styles.Input}
         onChangeText={(value) => {
           setEmail(value);
         }}
       />
       <TextInput
         placeholder="Username"
+        style={Styles.Input}
         onChangeText={(value) => {
           setUsername(value);
         }}
       />
       <TextInput
         placeholder="Password"
+        style={Styles.Input}
         onChangeText={(value) => {
           setPassword(value);
         }}
       />
       <TextInput
         placeholder="Confirm Password"
+        style={Styles.Input}
         onChangeText={(value) => {
           setConfirmPassword(value);
         }}
       />
 
       <TouchableOpacity
+      style={Styles.Button}
         onPress={() => {
           save();
         }}
       >
         <TouchableOpacity
+
           onPress={() => {
             save();
           }}
         >
-          <Text>Log In</Text>
+          <Text
+
+          >Log In</Text>
         </TouchableOpacity>
       </TouchableOpacity>
     </SafeAreaView>
