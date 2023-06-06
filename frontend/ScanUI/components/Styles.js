@@ -3,16 +3,16 @@ import { StyleSheet } from "react-native";
 const ExternalStyles = StyleSheet.create({
   container: {
     alignItems: "center",
-    width: "90%",
-    margin: 5,
+    width: "95%",
+    margin: 10,
     paddingBottom: "5%",
     paddingTop: "5%",
-    backgroundColor: "gray",
+    backgroundColor: "grey",
     borderRadius: 10,
   },
   Input: {
     marginBottom: 20,
-    width: "65%",
+    width: "85%",
     height: 40,
     background: "#FFFFFF",
     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",

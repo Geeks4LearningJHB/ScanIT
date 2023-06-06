@@ -1,10 +1,11 @@
-import React, {  useState } from "react";
+import React, {  useState,useRef,useEffect } from "react";
 import {
   View,
   TouchableOpacity,
   Text,
   TextInput,
   SafeAreaView,
+  Animated
 } from "react-native";
 import Styles from "../Styles";
 
@@ -68,13 +69,37 @@ const signUp = ({ navigation }) => {
       // handleSignUp();
       // navigation.navigate("login");
       alert("signed in")
+      fadeOut()
     }
   };
+  //============================
+  const fadeAnim = useRef(new Animated.Value(0)).current; // Initial opacity value
+
+  const fadeIn = () => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 3500,
+      useNativeDriver: true, // Enable native driver for better performance
+    }).start();
+  };
+
+  const fadeOut = () => {
+    Animated.timing(fadeAnim, {
+      toValue: 0,
+      duration: 3000,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  useEffect(() => {
+    fadeIn(); // Trigger the fadeIn animation on component mount
+  }, []);
   return (
     <SafeAreaView style={Styles.container}>
-      <View style={Styles.LogoView}>
+      <Animated.View style={[Styles.LogoView, { opacity: fadeAnim }]}>
+        
         <Text style={Styles.headingStyle}>Sign In</Text>
-      </View>
+      </Animated.View>
 
       <TextInput
         placeholder="Name"
