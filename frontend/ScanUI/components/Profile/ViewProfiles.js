@@ -114,7 +114,7 @@ const viewProfiles = ({ navigation }) => {
                 style={Styles.btnContainer}
                 onPress={() => navigation.navigate("signUp")}
               >
-                <Text style={{ color: "blue" }}>View</Text>
+                <Text >View Profile</Text>
               </TouchableOpacity>
             </View>
           </View>
