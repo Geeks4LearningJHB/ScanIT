@@ -33,21 +33,7 @@ const ExternalStyles = StyleSheet.create({
     borderRadius: 100,
     marginBottom: 55,
   },
-  searchIcon: {
-    marginRight: 8,
-  },
-  input: {
-    flex: 1,
-    color: "#000",
-    padding: 5,
-    paddingTop: 3,
-    paddingBottom: 3,
-  },
-  searchIconbtn: {
-    padding: 8,
-    backgroundColor: "white",
-    borderRadius: 8,
-  },
+
   Button: {
     marginBottom: 20,
     marginTop: 10,
@@ -85,7 +71,7 @@ const ExternalStyles = StyleSheet.create({
     marginBottom: 5,
     borderRadius: 5,
     boxShadow:
-      "0px 4px 4px rgba(0, 0, 0, 0.25),0px 4px 4px rgba(0, 0, 0, 0.25),0px 4px 4px rgba(0, 0, 0, 0.25),0px 4px 4px rgba(0, 0, 0, 0.25)",
+      "0px 4px 4px rgba(0, 0, 0, 0.25)",
     backgroundColor: "white",
   },
   search: {
@@ -122,13 +108,39 @@ const ExternalStyles = StyleSheet.create({
     fontWeight: "bold",
   },
   btnContainer: {
-    width: 100,
-    height: 25,
+    height: 10,
     borderRadius: 5,
-    marginTop: 10,
-    backgroundColor: "#F0EEED",
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: "white",
+    flex:1,
+    flexDirection:'row',
+    marginBottom:5,
+
+
   },
+  input: {
+    flex: 1,
+    color: '#000',
+    paddingStart:8,
+    outlineWidth: 0,
+  },
+  button: {
+    padding: 8,justifyContent: 'center',
+    borderRadius: 8,
+    marginLeft: 8,
+  },  // searchIcon: {
+  //   marginRight: 8,
+  // },
+  // input: {
+  //   flex: 1,
+  //   color: "#000",
+  //   padding: 5,
+  //   paddingTop: 3,
+  //   paddingBottom: 3,
+  // },
+  // searchIconbtn: {
+  //   padding: 8,
+  //   backgroundColor: "white",
+  //   borderRadius: 8,
+  // },
 });
 export default ExternalStyles;

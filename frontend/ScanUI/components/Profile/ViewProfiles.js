@@ -85,16 +85,17 @@ const viewProfiles = ({ navigation }) => {
   return (
     <SafeAreaView style={Styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={Styles.card}>
+        <View style={Styles.btnContainer}>
           <TextInput
             style={Styles.input}
             value={text}
+            
             onChangeText={(value) => {
               setText(value);
             }}
             placeholder="Search"
           />
-          <TouchableOpacity style={Styles.searchIconBtn} onPress={handleSearch}>
+          <TouchableOpacity style={Styles.button} onPress={handleSearch}>
             <EvilIcons name="search" size={24} color="black" />
           </TouchableOpacity>
         </View>
