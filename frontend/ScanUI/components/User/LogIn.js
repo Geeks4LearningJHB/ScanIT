@@ -5,12 +5,13 @@ const logIn = () => {
   return (
     <View style={styles.content}>
       <View style={styles.logo}>
-        <Text style={styles.welcomeText}>Welcome</Text>
+        <Text style={styles.welcomeText}>Hello,</Text>
+        <Text>welcome to ScanIT</Text>
       </View>
 
       <View style={styles.controlls}>
-      <TextInput style={styles.textInput}/>
-      <TextInput style={styles.textInput}/>
+      <TextInput placeholder="Enter username" style={styles.textInput}/>
+      <TextInput placeholder="Enter Password" style={styles.textInput}/>
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
       margin:25,
       borderColor:'black',
       borderRadius:10,
-      borderWidth:2,
+      //borderWidth:2,
       justifyContent:'center',
     
     },
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
       //borderWidth:2,
       marginTop:15,
       alignItems:'center',
-      justifyContent:'',
+      //justifyContent:'',
     
       marginBottom:20,
 
@@ -73,7 +74,7 @@ const styles = StyleSheet.create({
       borderRadius:10,
       width:250,
       marginBottom:20,
-      marginHorizontal:0,
+      
       padding:5,
       textAlign:'center',
       
@@ -82,6 +83,7 @@ const styles = StyleSheet.create({
     buttonText:{
       fontSize:20,
       fontWeight:'bold',
+      textAlign:'center',
     }
 
     
