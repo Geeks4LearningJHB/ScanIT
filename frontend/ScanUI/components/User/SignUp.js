@@ -70,7 +70,7 @@ const signUp = ({ navigation }) => {
       handleSignUp();
     }
   };
-  //=====================================================
+  //==============================================
   const fadeAnim = useRef(new Animated.Value(0)).current; // Initial opacity value
 
   const fadeIn = () => {
