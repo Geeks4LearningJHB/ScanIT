@@ -1,18 +1,17 @@
-import React, {  useState,useRef,useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   View,
   TouchableOpacity,
   Text,
   TextInput,
   SafeAreaView,
-  Animated
+  Animated,
 } from "react-native";
 import Styles from "../Styles";
 
 const signUp = ({ navigation }) => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -20,7 +19,7 @@ const signUp = ({ navigation }) => {
     return (
       name === "" ||
       surname === "" ||
-      username === "" ||
+      email === "" ||
       password === "" ||
       confirmPassword === ""
     );
@@ -44,11 +43,13 @@ const signUp = ({ navigation }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, surname, username, password }),
+        body: JSON.stringify({ name, surname, email, password }),
       });
 
       if (response.ok) {
         alert("Signup successful");
+        navigation.navigate("login");
+        fadeOut();
       } else {
         alert("Signup failed");
       }
@@ -56,9 +57,9 @@ const signUp = ({ navigation }) => {
       console.error("Error:", error);
     }
   };
-  const save = () => {
-    if (isEmpty(name, surname, username, password, confirmPassword)) {
-      alert("Fill them");
+  const validation = () => {
+    if (isEmpty(name, surname, email, password, confirmPassword)) {
+      alert("Fill all the filleds");
     } else if (password !== confirmPassword) {
       alert("Passwords don't match");
     } else if (validateLength(password)) {
@@ -66,13 +67,10 @@ const signUp = ({ navigation }) => {
     } else if (!isValidEmail(email)) {
       alert("Email address must contain @ charecter ");
     } else {
-      // handleSignUp();
-      // navigation.navigate("login");
-      alert("signed in")
-      fadeOut()
+      handleSignUp();
     }
   };
-  //============================
+  //=====================================================
   const fadeAnim = useRef(new Animated.Value(0)).current; // Initial opacity value
 
   const fadeIn = () => {
@@ -92,12 +90,11 @@ const signUp = ({ navigation }) => {
   };
 
   useEffect(() => {
-    fadeIn(); // Trigger the fadeIn animation on component mount
+    fadeIn();
   }, []);
   return (
     <SafeAreaView style={Styles.container}>
       <Animated.View style={[Styles.LogoView, { opacity: fadeAnim }]}>
-        
         <Text style={Styles.headingStyle}>Sign In</Text>
       </Animated.View>
 
@@ -122,13 +119,9 @@ const signUp = ({ navigation }) => {
           setEmail(value);
         }}
       />
-      <TextInput
-        placeholder="Username"
-        style={Styles.Input}
-        onChangeText={(value) => {
-          setUsername(value);
-        }}
-      />
+      
+
+     
       <TextInput
         placeholder="Password"
         style={Styles.Input}
@@ -145,21 +138,12 @@ const signUp = ({ navigation }) => {
       />
 
       <TouchableOpacity
-      style={Styles.Button}
+        style={Styles.Button}
         onPress={() => {
-          save();
+          validation();
         }}
       >
-        <TouchableOpacity
-
-          onPress={() => {
-            save();
-          }}
-        >
-          <Text
-
-          >Log In</Text>
-        </TouchableOpacity>
+        <Text>Log In</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
