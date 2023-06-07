@@ -16,12 +16,16 @@ const logIn = () => {
   const loginHandler= ()=>{
     console.log(password);
   }
+
+  const signInHandler=()=>{
+   //navigation to sign in page Required  
+  }
   return (
     <View style={styles.content}>
       <View style={styles.logo}>
-        <Text style={styles.welcomeText}>Hello,</Text>
-        <Text style={{ fontSize: 18 }}>welcome to ScanIT</Text>
-        <Image style={{ width: 50, height: 50, marginTop: 20, marginBottom: 40 }} source={require('../../assets/Scan.png')} />
+        <Text style={styles.helloText}>Hello,</Text>
+        <Text style={styles.welcomeText}>welcome to ScanIT</Text>
+        <Image style={styles.image} source={require('../../assets/Scan.png')} />
       </View>
 
       <View style={styles.controlls}>
@@ -30,9 +34,9 @@ const logIn = () => {
         <TouchableOpacity onPress={()=>loginHandler()} style={styles.button}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
-        <Text style={{ fontSize: 18 }}>New to TapIT?</Text>
+        <Text style={styles.newText}>New to ScanIT?</Text>
         <TouchableOpacity>
-          <Text style={{ fontSize: 18, fontWeight: 'Bold', color: 'blue', textDecorationLine: 'underline', marginBottom: 20 }} >Create Account</Text>
+          <Text style={styles.accountText} onPress={()=>{signInHandler()}} >Create Account</Text>
         </TouchableOpacity>
 
       </View>
@@ -65,7 +69,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
 
   },
-  welcomeText: {
+  helloText: {
     fontSize: 30,
     fontWeight: 'bold',
 
@@ -93,7 +97,25 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
-  }
+  },
+  welcomeText:
+  { fontSize: 18,
+  },
+  newText:{ fontSize: 18 
+  },
+  accountText:{ 
+    fontSize: 18,
+     fontWeight: 'Bold',
+      color: 'blue', 
+      textDecorationLine: 'underline',
+       marginBottom: 20 
+      },
+image:{ width: 50,
+   height: 50,
+    marginTop: 20,
+     marginBottom: 40
+     }
+
 
 
 })
