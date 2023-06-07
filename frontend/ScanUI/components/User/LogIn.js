@@ -12,7 +12,7 @@ const logIn = () => {
       <TextInput style={styles.textInput}/>
       <TextInput style={styles.textInput}/>
       <TouchableOpacity style={styles.button}>
-        <Text>Login</Text>
+        <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
         
       </View>
@@ -31,23 +31,23 @@ const styles = StyleSheet.create({
     
     },
     logo:{
-      flex:1,
-      borderColor:'red',
-      borderColor:'black',
-      borderRadius:10,
-      borderWidth:2,
+      flex:2,
+     // borderColor:'red',
+    //  borderColor:'black',
+     // borderRadius:10,
+     // borderWidth:2,
       margin:15,
       alignItems:'center',
       justifyContent:'center'
 
     },
     controlls:{
-      flex:3,
-      borderColor:'red',
-      borderColor:'black',
-      borderRadius:10,
-      borderWidth:2,
-      margin:15,
+      flex:2,
+    
+     // borderColor:'black',
+     // borderRadius:10,
+      //borderWidth:2,
+      marginTop:15,
       alignItems:'center',
       justifyContent:'',
     
@@ -67,6 +67,21 @@ const styles = StyleSheet.create({
       marginBottom:20,
       marginHorizontal:0,
       padding:5,
+    },
+    button:{
+      borderColor:'black',
+      borderRadius:10,
+      width:250,
+      marginBottom:20,
+      marginHorizontal:0,
+      padding:5,
+      textAlign:'center',
+      
+      backgroundColor:'#C0C0C0'
+    },
+    buttonText:{
+      fontSize:20,
+      fontWeight:'bold',
     }
 
     
