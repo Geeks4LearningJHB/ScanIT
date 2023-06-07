@@ -10,8 +10,9 @@ import {
 import * as ImagePicker from "expo-image-picker";
 import { Picker } from "@react-native-picker/picker";
 import axios from "axios";
+import environment from "../../Config/environment";
 
-const createProfile = () => {
+const CreateProfile = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
@@ -32,7 +33,7 @@ const createProfile = () => {
 
   const fetchSkillList = async () => {
     try {
-      const response = await axios.get("your-backend-api-url/skills");
+      const response = await axios.get(`${environment.api}/skills`);
       setSkillList(response.data.skills);
     } catch (error) {
       console.log("Error fetching skill list:", error);
@@ -169,4 +170,4 @@ const createProfile = () => {
   );
 };
 
-export default createProfile;
+export default CreateProfile;
