@@ -11,7 +11,7 @@ const logIn = () => {
 
       <View style={styles.controlls}>
       <TextInput placeholder="Enter username" style={styles.textInput}/>
-      <TextInput placeholder="Enter Password" style={styles.textInput}/>
+      <TextInput secureTextEntry={true} placeholder="Enter Password" style={styles.textInput}/>
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
