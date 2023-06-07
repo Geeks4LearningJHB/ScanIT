@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 
-import {
-  View,
-  TouchableOpacity,
-  Text,
-  ScrollView,
-  SafeAreaView,
-  Image,
-  Icon,
-} from "react-native";
 import { EvilIcons } from "@expo/vector-icons";
-import Styles from "../Styles";
+import {
+  Image,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { TextInput } from "react-native-gesture-handler";
+import { getAllProfiles } from "../../api/gitter";
+import Styles from "../Styles";
+
 const viewProfiles = ({ navigation }) => {
   const [text, setText] = useState("");
   const [data, setData] = useState({
@@ -20,67 +21,65 @@ const viewProfiles = ({ navigation }) => {
         occupation: "Software Developer",
         name: "Philasande Bhani",
         picture: "His picture",
-        experience:5
+        experience: 5,
       },
       {
         occupation: "Businest Analyst",
         name: "Nosandi Ndimithi",
-        picture: "her picture",experience:3
+        picture: "her picture",
+        experience: 3,
       },
       {
         occupation: "Software Tester",
         name: "Vivian Mamgobo",
-        picture: "her picture",experience:6
+        picture: "her picture",
+        experience: 6,
       },
       {
         occupation: "Software Tester",
         name: "Vivian Mamgobo",
-        picture: "her picture",experience:6
+        picture: "her picture",
+        experience: 6,
       },
       {
         occupation: "Software Tester",
         name: "Vivian Mamgobo",
-        picture: "her picture",experience:2
+        picture: "her picture",
+        experience: 2,
       },
       {
         occupation: "Software Tester",
         name: "Vivian Mamgobo",
-        picture: "her picture",experience:4
+        picture: "her picture",
+        experience: 4,
       },
       {
         occupation: "Software Tester",
         name: "Vivian Mamgobo",
-        picture: "her picture",experience:1
+        picture: "her picture",
+        experience: 1,
       },
       {
         occupation: "Software Tester",
         name: "Vivian Mamgobo",
-        picture: "her picture",experience:2
+        picture: "her picture",
+        experience: 2,
       },
       {
         occupation: "Software Tester",
         name: "Vivian Mamgobo",
-        picture: "her picture",experience:4
+        picture: "her picture",
+        experience: 4,
       },
     ],
   });
   const handleSearch = () => {
     alert("not yet implimented");
   };
-  // This function will be used to get data from the back end.=============
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
 
-  // const fetchData = async () => {
-  //   try {
-  //     const response = await fetch('Back end api');
-  //     const jsonData = await response.json();
-  //     setData(jsonData);
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //   }
-  // };
+  useEffect(() => {
+    getAllProfiles();
+  }, []);
 
   return (
     <SafeAreaView style={Styles.container}>
@@ -89,7 +88,6 @@ const viewProfiles = ({ navigation }) => {
           <TextInput
             style={Styles.input}
             value={text}
-            
             onChangeText={(value) => {
               setText(value);
             }}
@@ -110,12 +108,15 @@ const viewProfiles = ({ navigation }) => {
             <View style={Styles.textView}>
               <Text style={Styles.name}>{item.name}</Text>
               <Text style={Styles.text}>{item.occupation}</Text>
-              <Text style={Styles.text}>{item.experience} {item.experience > 1 ? "years" :"year"} experience</Text>
+              <Text style={Styles.text}>
+                {item.experience} {item.experience > 1 ? "years" : "year"}{" "}
+                experience
+              </Text>
               <TouchableOpacity
                 style={Styles.btnContainer}
                 onPress={() => navigation.navigate("signUp")}
               >
-                <Text >View Profile</Text>
+                <Text>View Profile</Text>
               </TouchableOpacity>
             </View>
           </View>

@@ -1,12 +1,13 @@
 import { React, useState } from "react";
 import {
-  View,
-  TouchableOpacity,
+  SafeAreaView,
   Text,
   TextInput,
-  SafeAreaView,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import Styles from "../Styles";
+import { saveProfile } from "../../api/gitter";
+import { isValidUserInput } from "../../utils/validations";
 
 const signUp = ({ navigation }) => {
   const [name, setName] = useState("");
@@ -15,37 +16,10 @@ const signUp = ({ navigation }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
-  const isEmpty = () => {
-    return (
-      name === "" ||
-      surname === "" ||
-      username === "" ||
-      password === "" ||
-      confirmPassword === ""
-    );
-  };
-  const validateLength = () => {
-    if (password.length > 3) {
-      return false;
-    }
-    return true;
-  };
-  const isValidEmail = () => {
-    if (email.includes("@")) {
-      return true;
-    }
-    return false;
-  };
+
   const handleSignUp = async () => {
     try {
-      const response = await fetch("back end endpoint", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, surname, username, password }),
-      });
-
+      const response = await saveProfile(name, surname, username, password);
       if (response.ok) {
         alert("Signup successful");
       } else {
@@ -56,18 +30,25 @@ const signUp = ({ navigation }) => {
     }
   };
   const save = () => {
-    if (isEmpty(name, surname, username, password, confirmPassword)) {
-      alert("Fill them");
-    } else if (password !== confirmPassword) {
-      alert("Passwords don't match");
-    } else if (validateLength(password)) {
-      alert("Try a stronger password");
-    } else if (!isValidEmail(email)) {
-      alert("Email address must contain @ charecter ");
-    } else {
-      handleSignUp();
-      navigation.navigate("login");
+    const validation = isValidUserInput(
+      name,
+      surname,
+      username,
+      password,
+      confirmPassword
+    );
+
+    if (validation) {
+      if (validation === "email") {
+        alert("Email address must contain @ charecter ");
+      } else if (validation === "empty") {
+        alert("Fill them");
+      } else if (validation === "length") {
+        alert("Try a stronger password");
+      }
     }
+    handleSignUp();
+    navigation.navigate("login");
   };
   return (
     <SafeAreaView>
