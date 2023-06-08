@@ -1,14 +1,13 @@
 export function isValidUserInput(
   name,
   surname,
-  username,
+  email,
   password,
   confirmPassword
 ) {
   if (!isValidEmail) return "email";
   if (!validateLength) return "length";
-  if (isEmpty(name, surname, username, password, confirmPassword))
-    return "empty";
+  if (isEmpty(name, surname, email, password, confirmPassword)) return "empty";
 }
 
 const isValidEmail = () => {
@@ -19,11 +18,11 @@ const validateLength = () => {
   return password.length > 3;
 };
 
-const isEmpty = (name, surname, username, password, confirmPassword) => {
+const isEmpty = (name, surname, email, password, confirmPassword) => {
   return (
     name === "" ||
     surname === "" ||
-    username === "" ||
+    email === "" ||
     password === "" ||
     confirmPassword === ""
   );
