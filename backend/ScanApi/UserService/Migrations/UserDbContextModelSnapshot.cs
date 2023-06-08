@@ -22,7 +22,7 @@ namespace UserService.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("UserService.Model.Profile", b =>
+            modelBuilder.Entity("UserService.Model.Profiles", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -69,12 +69,12 @@ namespace UserService.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("ProfileId")
+                    b.Property<Guid?>("ProfilesId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProfileId");
+                    b.HasIndex("ProfilesId");
 
                     b.ToTable("Skills");
                 });
@@ -103,33 +103,33 @@ namespace UserService.Migrations
                     b.Property<bool>("PasswordConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<Guid?>("ProfileId")
+                    b.Property<Guid?>("ProfilesId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProfileId");
+                    b.HasIndex("ProfilesId");
 
                     b.ToTable("Users");
                 });
 
             modelBuilder.Entity("UserService.Model.Skill", b =>
                 {
-                    b.HasOne("UserService.Model.Profile", null)
+                    b.HasOne("UserService.Model.Profiles", null)
                         .WithMany("Skills")
-                        .HasForeignKey("ProfileId");
+                        .HasForeignKey("ProfilesId");
                 });
 
             modelBuilder.Entity("UserService.Model.User", b =>
                 {
-                    b.HasOne("UserService.Model.Profile", "Profile")
+                    b.HasOne("UserService.Model.Profiles", "Profiles")
                         .WithMany()
-                        .HasForeignKey("ProfileId");
+                        .HasForeignKey("ProfilesId");
 
-                    b.Navigation("Profile");
+                    b.Navigation("Profiles");
                 });
 
-            modelBuilder.Entity("UserService.Model.Profile", b =>
+            modelBuilder.Entity("UserService.Model.Profiles", b =>
                 {
                     b.Navigation("Skills");
                 });

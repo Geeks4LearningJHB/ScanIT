@@ -14,7 +14,7 @@ namespace UserService.Repository
             _userDbContext = userDbContext;
         }
 
-        public User CreateUserAsync(User user)
+        public async Task<User> CreateUserAsync(User user)
         {
             try
             {
@@ -33,9 +33,10 @@ namespace UserService.Repository
             throw new NotImplementedException();
         }
 
-        public Task<List<User>> GetAllUsersAsync()
+        public async Task<List<User>> GetAllUsersAsync()
         {
-            throw new NotImplementedException();
+            List<User> users = await _userDbContext.Users.ToListAsync();
+            return users;
         }
         public async Task<User> GetUserByIdAsync(Guid userId)
         {

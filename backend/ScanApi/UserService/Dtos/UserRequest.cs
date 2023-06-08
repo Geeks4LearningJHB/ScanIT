@@ -8,6 +8,6 @@ namespace UserService.Dtos
         public string? LastName { get; set; }
         public string? Password { get; set; }
         public bool PasswordConfirmed { get; set; } = false;
-        public ProfileRequest? Profile { get; set; }
+        public ProfileRequest? Profiles { get; set; }
     }
 }

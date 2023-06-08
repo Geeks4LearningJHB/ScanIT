@@ -1,22 +1,26 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
 
 namespace UserService.DBContext
 {
-    public class DbContextFactory
+    public class DbContextFactory: IDesignTimeDbContextFactory<UserDbContext>
     {
-      //  public static IConfigurationRoot Configuration { get; set; }
-        public static UserDbContext CreateDbContext()
+        public UserDbContext CreateDbContext(string[] args)
         {
-            var config = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .Build();
+            var configuration = new ConfigurationBuilder()
+                     .SetBasePath(Directory.GetCurrentDirectory())
+                     .AddJsonFile("appsettings.json")
+                     .Build();
+            Console.WriteLine(configuration);
+            var optionsBuilder = new DbContextOptionsBuilder();
 
-            var optionsBuilder = new DbContextOptionsBuilder<UserDbContext>();
-            optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+            var connectionString = configuration
+                        .GetConnectionString("UserService");
+
+            optionsBuilder.UseSqlServer(connectionString);
 
             return new UserDbContext(optionsBuilder.Options);
         }

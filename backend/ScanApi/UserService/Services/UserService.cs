@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using System.Collections.Generic;
 using UserService.Dtos;
 using UserService.Interfaces;
 using UserService.Model;
@@ -16,10 +17,10 @@ namespace UserService.Services
             _userRepository = userRepository;
             _mapper = mapper;
         }
-        public UserResponse CreateUserAsync(UserRequest userRequest)
+        public async Task<UserResponse> CreateUserAsync(UserRequest userRequest)
         {
             User userToAdd = _mapper.Map<User>(userRequest);
-            User user = _userRepository.CreateUserAsync(userToAdd);
+            User user = await _userRepository.CreateUserAsync(userToAdd);
             UserResponse response = _mapper.Map<UserResponse>(user);
             return response;
         }
@@ -29,9 +30,11 @@ namespace UserService.Services
             throw new NotImplementedException();
         }
 
-        public List<UserResponse> GetAllUsersAsync()
+        public async Task<List<UserResponse>> GetAllUsersAsync()
         {
-            throw new NotImplementedException();
+            var users =  await _userRepository.GetAllUsersAsync();
+            var l = _mapper.Map<List<UserResponse>>(users);
+            return l;
         }
 
         public UserRequest GetUserByIdAsync(Guid userId)

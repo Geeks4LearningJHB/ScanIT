@@ -6,6 +6,6 @@
         public string? LastName { get; set; }
         public string? Password { get; set; }
         public bool PasswordConfirmed { get; set; } = false;
-        public Profile? Profile { get; set; }
+        public Profiles? Profiles { get; set; }
     }
 }

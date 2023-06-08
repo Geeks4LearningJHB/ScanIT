@@ -6,6 +6,6 @@ namespace UserService.Dtos
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
-        public ProfileResponse? Profile { get; set; }
+        public ProfileResponse? Profiles { get; set; }
     }
 }

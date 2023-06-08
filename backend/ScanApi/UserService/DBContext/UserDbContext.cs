@@ -5,10 +5,10 @@ namespace UserService.DBContext
 {
     public class UserDbContext:DbContext
     {
-        public UserDbContext(DbContextOptions<UserDbContext> options) : base(options) { }   
+        public UserDbContext(DbContextOptions options) : base(options) { }   
 
         public DbSet<User> Users { get; set; }
         public DbSet<Skill> Skills { get; set; }    
-        public DbSet<Profile> Profiles { get; set; }   
+        public DbSet<Profiles> Profiles { get; set; }   
     }
 }
