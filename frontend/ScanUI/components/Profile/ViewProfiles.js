@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import { EvilIcons } from "@expo/vector-icons";
 import {
   Image,
@@ -11,7 +10,7 @@ import {
 } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import { getAllProfiles } from "../../api/gitter";
-import Styles from "../Styles";
+import styles from "../Styles";
 
 const ViewProfiles = ({ navigation }) => {
   const [text, setText] = useState("");
@@ -73,8 +72,9 @@ const ViewProfiles = ({ navigation }) => {
       },
     ],
   });
+
   const handleSearch = () => {
-    alert("not yet implimented");
+    alert("not yet implemented");
   };
 
   useEffect(() => {
@@ -82,41 +82,40 @@ const ViewProfiles = ({ navigation }) => {
   }, []);
 
   return (
-    <SafeAreaView style={Styles.container}>
+    <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={Styles.btnContainer}>
+        <View style={styles.btnContainer}>
           <TextInput
-            style={Styles.input}
+            style={styles.input}
             value={text}
             onChangeText={(value) => {
               setText(value);
             }}
             placeholder="Search"
           />
-          <TouchableOpacity style={Styles.button} onPress={handleSearch}>
+          <TouchableOpacity style={styles.button} onPress={handleSearch}>
             <EvilIcons name="search" size={24} color="black" />
           </TouchableOpacity>
         </View>
 
         {data.profiles.map((item, index) => (
-          <View key={index} style={Styles.card}>
+          <View key={index} style={styles.card}>
             <Image
-              // Picture to be setted according to the data from the api
               source={{ uri: "https://picsum.photos/id/237/536/354" }}
-              style={Styles.image}
+              style={styles.image}
             />
-            <View style={Styles.textView}>
-              <Text style={Styles.name}>{item.name}</Text>
-              <Text style={Styles.text}>{item.occupation}</Text>
-              <Text style={Styles.text}>
+            <View style={styles.textView}>
+              <Text style={styles.label}>{item.name}</Text>
+              <Text style={styles.text}>{item.occupation}</Text>
+              <Text style={styles.text}>
                 {item.experience} {item.experience > 1 ? "years" : "year"}{" "}
                 experience
               </Text>
               <TouchableOpacity
-                style={Styles.btnContainer}
+                style={styles.Button}
                 onPress={() => navigation.navigate("SignUp")}
               >
-                <Text>View Profile</Text>
+                <Text style={styles.buttonText}>View Profile</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -125,4 +124,5 @@ const ViewProfiles = ({ navigation }) => {
     </SafeAreaView>
   );
 };
+
 export default ViewProfiles;

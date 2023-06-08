@@ -31,7 +31,7 @@ const LogIn = ({ navigation }) => {
       if (response.ok) {
         // Login successful
         // You can navigate to the desired screen here
-        navigation.navigate("Home");
+        navigation.navigate("Root", { screen: "Home" });
       } else {
         console.log("Invalid credentials");
       }

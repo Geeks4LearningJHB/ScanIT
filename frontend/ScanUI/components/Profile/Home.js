@@ -1,11 +1,25 @@
-import React from "react ";
-import { View, TouchableOpacity, Text } from "react-native";
+import React from "react";
+import { View, Text, Image } from "react-native";
+import styles from "../Styles";
 
-const home = () => {
+const Home = ({ route }) => {
+  // const { firstName, lastName, profilePicture } = route.params;
+
   return (
-    <View>
-      <Text>Home Screen Works</Text>
+    <View style={styles.content}>
+      <View style={styles.logo}>
+        <Text style={styles.helloText}>Hello,</Text>
+        <Text style={styles.welcomeText}>Welcome to ScanIT</Text>
+        {/* <Image style={styles.image} source={{ uri: profilePicture }} /> */}
+      </View>
+
+      <View style={styles.controlls}>
+        <Text style={styles.newText}>Profile:</Text>
+        {/* <Text style={styles.label}>First Name: {firstName}</Text>
+        <Text style={styles.label}>Last Name: {lastName}</Text> */}
+      </View>
     </View>
   );
 };
-export default home;
+
+export default Home;

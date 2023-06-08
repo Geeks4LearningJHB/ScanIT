@@ -64,10 +64,10 @@ const ExternalStyles = StyleSheet.create({
   },
   image: {
     borderRadius: 50,
-    width: 50,
-    height: 50,
+    width: 90,
+    height: 90,
+    margin: 10,
     marginTop: 20,
-    marginBottom: 40,
   },
 
   container: {
@@ -131,7 +131,7 @@ const ExternalStyles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     alignItems: "center",
-    marginTop: 15,
+    // marginTop: 15,
   },
   buttonText: {
     color: "#fff",
@@ -142,6 +142,14 @@ const ExternalStyles = StyleSheet.create({
     width: 150,
     height: 150,
     marginLeft: 20,
+  },
+  card: {
+    flex: 2,
+    flexDirection: "row",
+    marginBottom: 10,
+    borderRadius: 5,
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+    backgroundColor: "white",
   },
 });
 export default ExternalStyles;
