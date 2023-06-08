@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { View, Image, Text, TouchableOpacity, TextInput } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import {
+  View,
+  Image,
+  Text,
+  TouchableOpacity,
+  TextInput,
+  ScrollView,
+} from "react-native";
+import styles from "../Styles";
 
-const viewProfile = () => {
+const ViewProfile = () => {
   const [profilePicture, setProfilePicture] = useState(null);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -85,79 +92,52 @@ const viewProfile = () => {
   };
 
   return (
-    <View>
-      {profilePicture && (
-        <Image
-          source={{ uri: profilePicture }}
-          style={{ width: 150, height: 150 }}
+    <ScrollView>
+      <View style={styles.container}>
+        {profilePicture && (
+          <Image
+            source={{ uri: profilePicture }}
+            style={{ width: 150, height: 150 }}
+          />
+        )}
+
+        <Text style={styles.label}>First Name</Text>
+        <TextInput value={firstName} onChangeText={setFirstName} />
+        <Text style={styles.label}>Last Name:</Text>
+        <TextInput value={lastName} onChangeText={setLastName} />
+        <Text style={styles.label}>Email:</Text>
+        <TextInput value={emailAddress} onChangeText={setEmailAddress} />
+        <Text style={styles.label}>House Address:</Text>
+        <TextInput value={houseAddress} onChangeText={setHouseAddress} />
+        <Text style={styles.label}>Gender:</Text>
+        <TextInput value={gender} onChangeText={setGender} />
+        <Text style={styles.label}>Experience:</Text>
+        <TextInput value={experience} onChangeText={setExperience} />
+        <Text style={styles.label}>Education:</Text>
+        <TextInput value={education} onChangeText={setEducation} />
+        <Text style={styles.label}>Phone Number:</Text>
+        <TextInput value={phoneNumber} onChangeText={setPhoneNumber} />
+        <Text style={styles.label}>Skills:</Text>
+        <TextInput
+          value={skills.join(", ")}
+          onChangeText={(text) => setSkills(text.split(", "))}
         />
-      )}
-      <Text>First Name:</Text>
-      <TextInput
-        value={firstName}
-        onChangeText={setFirstName}
-        placeholder="First Name"
-      />
-      <Text>Last Name:</Text>
-      <TextInput
-        value={lastName}
-        onChangeText={setLastName}
-        placeholder="Last Name"
-      />
-      <Text>Email:</Text>
-      <TextInput
-        value={emailAddress}
-        onChangeText={setEmailAddress}
-        placeholder="Email Address"
-      />
-      <Text>House Address:</Text>
-      <TextInput
-        value={houseAddress}
-        onChangeText={setHouseAddress}
-        placeholder="House Address"
-      />
-      <Text>Gender:</Text>
-      <TextInput value={gender} onChangeText={setGender} placeholder="Gender" />
-      <Text>Experience:</Text>
-      <TextInput
-        value={experience}
-        onChangeText={setExperience}
-        placeholder="Experience"
-      />
-      <Text>Education:</Text>
-      <TextInput
-        value={education}
-        onChangeText={setEducation}
-        placeholder="Education"
-      />
-      <Text>Phone Number:</Text>
-      <TextInput
-        value={phoneNumber}
-        onChangeText={setPhoneNumber}
-        placeholder="Phone Number"
-      />
-      <Text>Skills:</Text>
-      <TextInput
-        value={skills.join(", ")}
-        onChangeText={(text) => setSkills(text.split(", "))}
-        placeholder="Skills"
-      />
-      <Text>Professional Summary:</Text>
-      <TextInput
-        value={professionalSummary}
-        onChangeText={setProfessionalSummary}
-        placeholder="Professional Summary"
-      />
+        <Text style={styles.label}>Professional Summary:</Text>
+        <TextInput
+          value={professionalSummary}
+          onChangeText={setProfessionalSummary}
+        />
 
-      <TouchableOpacity onPress={handleSaveProfile}>
-        <Text>Save</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.Button} onPress={handleSaveProfile}>
+          <Text style={styles.buttonText}>Save</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity onPress={handleDeactivateAccount}>
-        <Text>Deactivate Account</Text>
-      </TouchableOpacity>
-    </View>
+        <TouchableOpacity style={styles.Button}>
+          <Text style={styles.buttonText}>Deactivate Account</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 };
 
-export default viewProfile;
+export default ViewProfile;

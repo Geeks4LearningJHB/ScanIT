@@ -11,6 +11,7 @@ import * as ImagePicker from "expo-image-picker";
 import { Picker } from "@react-native-picker/picker";
 import axios from "axios";
 import environment from "../../Config/environment";
+import styles from "../Styles";
 
 const CreateProfile = () => {
   const [firstName, setFirstName] = useState("");
@@ -89,47 +90,73 @@ const CreateProfile = () => {
 
   return (
     <ScrollView>
-      <View>
-        <Text>Create Profile</Text>
+      <View style={styles.container}>
+        <Text style={styles.heading}>Create Profile</Text>
 
-        <Text>First Name</Text>
-        <TextInput value={firstName} onChangeText={setFirstName} />
-
-        <Text>Last Name</Text>
-        <TextInput value={lastName} onChangeText={setLastName} />
-
-        <Text>Email Address</Text>
+        <Text style={styles.label}>First Name</Text>
         <TextInput
+          style={styles.input}
+          value={firstName}
+          onChangeText={setFirstName}
+        />
+
+        <Text style={styles.label}>Last Name</Text>
+        <TextInput
+          style={styles.input}
+          value={lastName}
+          onChangeText={setLastName}
+        />
+
+        <Text style={styles.label}>Email Address</Text>
+        <TextInput
+          style={styles.input}
           value={emailAddress}
           onChangeText={setEmailAddress}
           keyboardType="email-address"
         />
 
-        <Text>House Address</Text>
-        <TextInput value={houseAddress} onChangeText={setHouseAddress} />
+        <Text style={styles.label}>House Address</Text>
+        <TextInput
+          style={styles.input}
+          value={houseAddress}
+          onChangeText={setHouseAddress}
+        />
 
-        <Text>Gender</Text>
-        <Picker selectedValue={gender} onValueChange={setGender}>
+        <Text style={styles.label}>Gender</Text>
+        <Picker
+          style={styles.picker}
+          selectedValue={gender}
+          onValueChange={setGender}
+        >
           <Picker.Item label="Select Gender" value="" />
           <Picker.Item label="Male" value="male" />
           <Picker.Item label="Female" value="female" />
         </Picker>
 
-        <Text>Experience</Text>
-        <TextInput value={experience} onChangeText={setExperience} />
-
-        <Text>Education</Text>
-        <TextInput value={education} onChangeText={setEducation} />
-
-        <Text>Phone Number</Text>
+        <Text style={styles.label}>Experience</Text>
         <TextInput
+          style={styles.input}
+          value={experience}
+          onChangeText={setExperience}
+        />
+
+        <Text style={styles.label}>Education</Text>
+        <TextInput
+          style={styles.input}
+          value={education}
+          onChangeText={setEducation}
+        />
+
+        <Text style={styles.label}>Phone Number</Text>
+        <TextInput
+          style={styles.input}
           value={phoneNumber}
           onChangeText={setPhoneNumber}
           keyboardType="phone-pad"
         />
 
-        <Text>Skills</Text>
-        <View>
+        <Text style={styles.label}>Skills</Text>
+        <View style={styles.skillsContainer}>
           {skillList.map((skill) => (
             <TouchableOpacity
               key={skill.id}
@@ -145,25 +172,34 @@ const CreateProfile = () => {
                 }
               }}
             >
-              <Text>{skill.name}</Text>
+              <Text style={styles.skillText}>{skill.name}</Text>
             </TouchableOpacity>
           ))}
         </View>
 
-        <Text>Professional Summary</Text>
+        <Text style={styles.label}>Professional Summary</Text>
         <TextInput
+          style={styles.input}
           value={professionalSummary}
           onChangeText={setProfessionalSummary}
           multiline
         />
 
-        <TouchableOpacity onPress={handleSelectProfilePicture}>
-          <Text>Select Profile Picture</Text>
+        <TouchableOpacity
+          style={styles.selectProfilePictureButton}
+          onPress={handleSelectProfilePicture}
+        >
+          <Text style={styles.buttonText}>Upload Image</Text>
         </TouchableOpacity>
-        {profilePicture && <Image source={{ uri: profilePicture }} />}
+        {profilePicture && (
+          <Image
+            source={{ uri: profilePicture }}
+            style={styles.profilePicture}
+          />
+        )}
 
-        <TouchableOpacity onPress={handleSaveProfile}>
-          <Text>Save Details</Text>
+        <TouchableOpacity style={styles.Button} onPress={handleSaveProfile}>
+          <Text style={styles.buttonText}>Save Details</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>

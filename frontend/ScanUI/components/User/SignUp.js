@@ -1,7 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
-import { SafeAreaView, Text, TextInput } from "react-native";
+import {
+  SafeAreaView,
+  Text,
+  TextInput,
+  Animated,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import styles from "../Styles";
 
-const signUp = ({ navigation }) => {
+const SignUp = ({ navigation }) => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [password, setPassword] = useState("");
@@ -40,7 +48,7 @@ const signUp = ({ navigation }) => {
 
       if (response.ok) {
         alert("Signup successful");
-        navigation.navigate("login");
+        navigation.navigate("Login");
         fadeOut();
       } else {
         alert("Signup failed");
@@ -92,57 +100,56 @@ const signUp = ({ navigation }) => {
     fadeIn();
   }, []);
   return (
-    <SafeAreaView style={Styles.container}>
-      <Animated.View style={[Styles.LogoView, { opacity: fadeAnim }]}>
-        <Text style={Styles.headingStyle}>Sign In</Text>
-      </Animated.View>
-
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.label}>First Name</Text>
       <TextInput
-        placeholder="Name"
-        style={Styles.Input}
+        style={styles.input}
         onChangeText={(value) => {
           setName(value);
         }}
       />
+
+      <Text style={styles.label}>Last Name</Text>
       <TextInput
-        placeholder="Surname"
-        style={Styles.Input}
+        style={styles.input}
         onChangeText={(value) => {
           setSurname(value);
         }}
       />
+
+      <Text style={styles.label}>Email</Text>
       <TextInput
-        placeholder="Email"
-        style={Styles.Input}
+        style={styles.input}
         onChangeText={(value) => {
           setEmail(value);
         }}
       />
 
+      <Text style={styles.label}>Password</Text>
       <TextInput
-        placeholder="Password"
-        style={Styles.Input}
+        style={styles.input}
         onChangeText={(value) => {
           setPassword(value);
         }}
       />
+
+      <Text style={styles.label}>Confirm Password</Text>
       <TextInput
-        placeholder="Confirm Password"
-        style={Styles.Input}
+        style={styles.input}
         onChangeText={(value) => {
           setConfirmPassword(value);
         }}
       />
 
       <TouchableOpacity
-        style={Styles.Button}
+        style={styles.Button}
         onPress={() => {
           validation();
         }}
       >
-        <Text>Log In</Text>
+        <Text style={styles.buttonText}>Sign Up</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
 };
-export default signUp;
+export default SignUp;

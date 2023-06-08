@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { EvilIcons } from "@expo/vector-icons";
 import {
@@ -13,7 +13,7 @@ import { TextInput } from "react-native-gesture-handler";
 import { getAllProfiles } from "../../api/gitter";
 import Styles from "../Styles";
 
-const viewProfiles = ({ navigation }) => {
+const ViewProfiles = ({ navigation }) => {
   const [text, setText] = useState("");
   const [data, setData] = useState({
     profiles: [
@@ -114,7 +114,7 @@ const viewProfiles = ({ navigation }) => {
               </Text>
               <TouchableOpacity
                 style={Styles.btnContainer}
-                onPress={() => navigation.navigate("signUp")}
+                onPress={() => navigation.navigate("SignUp")}
               >
                 <Text>View Profile</Text>
               </TouchableOpacity>
@@ -125,4 +125,4 @@ const viewProfiles = ({ navigation }) => {
     </SafeAreaView>
   );
 };
-export default viewProfiles;
+export default ViewProfiles;
