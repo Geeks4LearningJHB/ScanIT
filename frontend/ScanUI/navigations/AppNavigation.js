@@ -1,7 +1,8 @@
-import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import React from "react";
+import viewProfiles from "../components/Profile/ViewProfiles";
 import Login from "../components/User/LogIn";
 import SignUp from "../components/User/SignUp";
 import Payment from "../components/Profile/Payment";

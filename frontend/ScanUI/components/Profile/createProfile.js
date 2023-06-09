@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
+import { Picker } from "@react-native-picker/picker";
+import axios from "axios";
+import * as ImagePicker from "expo-image-picker";
+import React, { useEffect, useState } from "react";
 import {
-  View,
+  Image,
+  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
-  Image,
-  ScrollView,
+  View,
 } from "react-native";
-import * as ImagePicker from "expo-image-picker";
-import { Picker } from "@react-native-picker/picker";
-import axios from "axios";
 import environment from "../../Config/environment";
 import styles from "../Styles";
 
