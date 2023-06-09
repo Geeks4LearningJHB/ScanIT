@@ -19,7 +19,8 @@ namespace AutoMapper
 
             CreateMap<ProfileRequest, Profiles>().ReverseMap();
             CreateMap<Profiles, ProfileResponse>().ReverseMap();
-          
+
+            CreateMap<LoginRequest, Login>().ReverseMap();
         }
     }
 }

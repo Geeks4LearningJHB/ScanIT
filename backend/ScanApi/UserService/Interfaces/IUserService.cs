@@ -6,8 +6,9 @@ namespace UserService.Interfaces
     {
         Task<UserResponse> CreateUserAsync(UserRequest userRequest);
         Task<List<UserResponse>> GetAllUsersAsync();
-        UserRequest GetUserByIdAsync(Guid userId);
-        UserResponse UpdateUserAsync(Guid userId, UserRequest userRequest);
-        UserResponse DeleteUserAsync(UserRequest userRequest);
+        Task<UserResponse> GetUserByIdAsync(Guid userId);
+        Task<UserResponse> UpdateUserAsync(Guid userId, UserRequest userRequest);
+        Task<UserResponse> DeleteUserAsync(UserRequest userRequest);
+        Task<UserResponse> LoginAsync(LoginRequest loginRequest);
     }
 }
