@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Alert,
 } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import { getAllProfiles } from "../../api/gitter";
@@ -14,6 +15,20 @@ import styles from "../Styles";
 
 const ViewProfiles = ({ navigation }) => {
   const [text, setText] = useState("");
+  const ButtonAlert = () => {
+    Alert.alert("Payment", "Please make payment before proceeding", [
+      {
+        text: "Ask me later",
+        onPress: () => console.log("Ask me later pressed"),
+      },
+      {
+        text: "Cancel",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "cancel",
+      },
+      { text: "OK", onPress: () => navigation.navigate("Payment") },
+    ]);
+  };
   const [data, setData] = useState({
     profiles: [
       {
@@ -111,10 +126,7 @@ const ViewProfiles = ({ navigation }) => {
                 {item.experience} {item.experience > 1 ? "years" : "year"}{" "}
                 experience
               </Text>
-              <TouchableOpacity
-                style={styles.Button}
-                onPress={() => navigation.navigate("SignUp")}
-              >
+              <TouchableOpacity style={styles.Button} onPress={ButtonAlert}>
                 <Text style={styles.buttonText}>View Profile</Text>
               </TouchableOpacity>
             </View>
