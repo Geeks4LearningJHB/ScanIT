@@ -1,4 +1,5 @@
-﻿using UserService.Model;
+﻿using UserService.Dtos;
+using UserService.Model;
 
 namespace UserService.Interfaces
 {
@@ -9,5 +10,6 @@ namespace UserService.Interfaces
         Task<User> GetUserByIdAsync(Guid userId);
         Task<User> UpdateUserAsync(Guid userId, User user);
         Task<User> DeleteUserAsync(User user);
+        Task<User> LoginAsync(Login login);
     }
 }
