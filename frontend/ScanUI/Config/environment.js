@@ -1,4 +1,3 @@
-export default Environment = {
-  production: false,
-  api: "https:localhost:5001",
-};
+export default function api() {
+  return "https://localhost:7142/api/";
+}

@@ -1,6 +1,8 @@
+import api from "../Config/environment";
+
 export async function getAllProfiles() {
   try {
-    const response = await fetch("Back end api");
+    const response = await fetch(`${api / user}`);
     const jsonData = await response.json();
     return jsonData;
   } catch (error) {
@@ -23,13 +25,12 @@ export async function saveProfile(name, surname, username, password) {
   }
 }
 
-function callApi(endpoint, token, options = { method: "get" }) {
-  const url = `${apiUrl}/${endpoint}`;
+function callApi(endpoint, options = { method: "get" }) {
+  const url = `${api}/${endpoint}`;
 
   return fetch(url, {
     ...options,
     headers: {
-      Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     },
   })
