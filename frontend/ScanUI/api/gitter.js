@@ -22,3 +22,27 @@ export async function saveProfile(name, surname, username, password) {
     console.error("Error:", error);
   }
 }
+
+function callApi(endpoint, token, options = { method: "get" }) {
+  const url = `${apiUrl}/${endpoint}`;
+
+  return fetch(url, {
+    ...options,
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => {
+      return res.text();
+    })
+    .then((text) => {
+      if (text === "OK") {
+        return [];
+      }
+      if (text.length === 0) {
+        return [];
+      }
+      return JSON.parse(text);
+    });
+}
