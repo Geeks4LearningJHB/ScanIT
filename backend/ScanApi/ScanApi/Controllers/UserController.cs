@@ -13,15 +13,20 @@ namespace ScanApi.Controllers
     {
         private readonly IUserService _userService;
 
-        public UserController(IUserService userService)
+        private readonly ILogger<UserController> _logger;
+
+        public UserController(IUserService userService, ILogger<UserController> logger)
         {
             _userService = userService;
+            _logger = logger;
         }
 
         [HttpGet(Name = "Get all users")]
         public async Task<IActionResult> GetAllUsers()
         {
+            _logger.LogInformation("Gettting all users started");
             var users = await _userService.GetAllUsersAsync();
+            _logger.LogInformation("Getting all users ended");
             return Ok(users);
         }
 

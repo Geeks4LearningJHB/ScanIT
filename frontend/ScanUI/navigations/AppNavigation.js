@@ -9,7 +9,6 @@ import Payment from "../components/Profile/Payment";
 import Home from "../components/Profile/Home";
 import CreateProfile from "../components/Profile/createProfile";
 import ViewProfile from "../components/Profile/ViewProfile";
-import viewProfiles from "../components/Profile/ViewProfiles";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();

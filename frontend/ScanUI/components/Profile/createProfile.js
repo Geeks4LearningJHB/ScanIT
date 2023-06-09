@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import environment from "../../Config/environment";
 import styles from "../Styles";
+import api from "../../Config/environment";
 
 const CreateProfile = () => {
   const [firstName, setFirstName] = useState("");
@@ -34,8 +35,10 @@ const CreateProfile = () => {
 
   const fetchSkillList = async () => {
     try {
-      const response = await axios.get(`${environment.api}/skills`);
-      setSkillList(response.data.skills);
+      console.log("I am an api", api());
+      const response = await axios.get("http://localhost:5114/api/User");
+      console.log(response);
+      setSkillList(response);
     } catch (error) {
       console.log("Error fetching skill list:", error);
     }
