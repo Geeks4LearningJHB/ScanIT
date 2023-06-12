@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
+  Animated,
   SafeAreaView,
   Text,
   TextInput,
-  Animated,
   TouchableOpacity,
-  View,
 } from "react-native";
 import styles from "../Styles";
 
@@ -15,27 +14,7 @@ const SignUp = ({ navigation }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
-  const isEmpty = () => {
-    return (
-      name === "" ||
-      surname === "" ||
-      email === "" ||
-      password === "" ||
-      confirmPassword === ""
-    );
-  };
-  const validateLength = () => {
-    if (password.length > 3) {
-      return false;
-    }
-    return true;
-  };
-  const isValidEmail = () => {
-    if (email.includes("@")) {
-      return true;
-    }
-    return false;
-  };
+
   const handleSignUp = async () => {
     try {
       const response = await fetch("back end endpoint", {
