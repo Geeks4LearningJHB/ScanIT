@@ -9,6 +9,6 @@ namespace UserService.Model
         public string? Education { get; set; }
         public string? PhoneNumber { get; set; }
         public List<Skill>? Skills { get; set; }
-        public string? ProffesionalSummary { get;set; }
+        public string? professionalSummary { get;set; }
     }
 }
