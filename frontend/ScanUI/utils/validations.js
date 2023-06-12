@@ -5,8 +5,8 @@ export function isValidUserInput(
   password,
   confirmPassword
 ) {
-  if (!isValidEmail) return "email";
-  if (!validateLength) return "length";
+  if (!isValidEmail()) return "email";
+  if (!validateLength()) return "length";
   if (isEmpty(name, surname, email, password, confirmPassword)) return "empty";
 }
 

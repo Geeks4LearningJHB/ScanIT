@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": "9EBDCC4E-C9AA-4F59-FF64-08DB68245A84",
+      "firstName": "Tshimangadzo",
+      "email": "mudzanani27@gmail.com",
+      "lastName": "Mudzanani",
+      "profiles": {
+        "id": "62A6ACC8-E70D-4C1D-48DF-08DB68B65B13",
+        "gender": "Male",
+        "experience": "2",
+        "education": "Matric",
+        "phoneNumber": "0661826809",
+        "skills": [
+          {
+            "id": "4D3695D1-C0DA-45B9-C0F0-08DB68B78B25",
+            "name": "Java"
+          },
+          {
+            "id": "56EE5E39-AFFC-49ED-48E0-08DB68B65B13",
+            "name": "C#"
+          }
+        ],
+        "professionalSummary": "I am software Developer"
+      }
+    }
+  ]
+}
