@@ -1,11 +1,6 @@
 import api from "../Config/environment";
 
 export async function getAllProfiles() {
-<<<<<<< HEAD
-  return await fetch(`${api}user`)
-      .then((response) => response.json())
-      .catch((err) => err);
-=======
   console.log("Start");
   await callApi()
     .then((res) => {
@@ -17,7 +12,7 @@ export async function getAllProfiles() {
     });
   console.log("End");
 
-  return fetch("https://192.168.3.22:5001/api/user", {
+  return fetch(`${environment.api}/users`, {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Content-Type": "application/json",
@@ -41,7 +36,7 @@ export async function getAllProfiles() {
 }
 
 export async function callApi() {
-  const res = await fetch("https://192.168.3.22:5001/api/user", {
+  const res = await fetch(`${environment.api}/users`, {
     headers: {
       "Content-Type": "application/json",
     },
@@ -49,7 +44,6 @@ export async function callApi() {
 
   console.log(res);
   return res.json();
->>>>>>> 20346fc79b57bfec7ae04555636d4d25b3b1fd32
 }
 
 export async function saveProfile(name, surname, username, password) {
@@ -67,25 +61,25 @@ export async function saveProfile(name, surname, username, password) {
   }
 }
 
-// function callApi(endpoint, options = { method: "get" }) {
-//   const url = `${api}/${endpoint}`;
+function callApi(endpoint, options = { method: "get" }) {
+  const url = `${api}/${endpoint}`;
 
-//   return fetch(url, {
-//     ...options,
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   })
-//     .then((res) => {
-//       return res.text();
-//     })
-//     .then((text) => {
-//       if (text === "OK") {
-//         return [];
-//       }
-//       if (text.length === 0) {
-//         return [];
-//       }
-//       return JSON.parse(text);
-//     });
-// }
+  return fetch(url, {
+    ...options,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => {
+      return res.text();
+    })
+    .then((text) => {
+      if (text === "OK") {
+        return [];
+      }
+      if (text.length === 0) {
+        return [];
+      }
+      return JSON.parse(text);
+    });
+}
