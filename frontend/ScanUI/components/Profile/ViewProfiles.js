@@ -29,6 +29,15 @@ const ViewProfiles = ({ navigation }) => {
       { text: "OK", onPress: () => navigation.navigate("Payment") },
     ]);
   };
+  async function getProfiles() {
+    getAllProfiles().then((res) => {
+      console.log("I am here");
+      console.log("I am here bru");
+      console.log(res);
+      console.log("I am done");
+    });
+  }
+
   const [data, setData] = useState({
     profiles: [
       {
@@ -93,7 +102,8 @@ const ViewProfiles = ({ navigation }) => {
   };
 
   useEffect(() => {
-    getAllProfiles();
+    const boundGetProfiles = getProfiles.bind(this);
+    boundGetProfiles();
   }, []);
 
   return (

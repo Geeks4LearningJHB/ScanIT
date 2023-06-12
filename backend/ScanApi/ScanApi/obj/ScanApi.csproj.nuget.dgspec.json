@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Desktop\\RJP\\ScanIT\\backend\\ScanApi\\ScanApi\\ScanApi.csproj": {}
+    "C:\\Users\\asall\\OneDrive\\Desktop\\GeeksApplication\\ScanIT\\backend\\ScanApi\\ScanApi\\ScanApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Desktop\\RJP\\ScanIT\\backend\\ScanApi\\ScanApi\\ScanApi.csproj": {
+    "C:\\Users\\asall\\OneDrive\\Desktop\\GeeksApplication\\ScanIT\\backend\\ScanApi\\ScanApi\\ScanApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\RJP\\ScanIT\\backend\\ScanApi\\ScanApi\\ScanApi.csproj",
+        "projectUniqueName": "C:\\Users\\asall\\OneDrive\\Desktop\\GeeksApplication\\ScanIT\\backend\\ScanApi\\ScanApi\\ScanApi.csproj",
         "projectName": "ScanApi",
-        "projectPath": "C:\\Users\\user\\Desktop\\RJP\\ScanIT\\backend\\ScanApi\\ScanApi\\ScanApi.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\RJP\\ScanIT\\backend\\ScanApi\\ScanApi\\obj\\",
+        "projectPath": "C:\\Users\\asall\\OneDrive\\Desktop\\GeeksApplication\\ScanIT\\backend\\ScanApi\\ScanApi\\ScanApi.csproj",
+        "packagesPath": "C:\\Users\\asall\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\asall\\OneDrive\\Desktop\\GeeksApplication\\ScanIT\\backend\\ScanApi\\ScanApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\asall\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,14 +26,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\user\\Desktop\\RJP\\ScanIT\\backend\\ScanApi\\UserService\\UserService.csproj": {
-                "projectPath": "C:\\Users\\user\\Desktop\\RJP\\ScanIT\\backend\\ScanApi\\UserService\\UserService.csproj"
+              "C:\\Users\\asall\\OneDrive\\Desktop\\GeeksApplication\\ScanIT\\backend\\ScanApi\\UserService\\UserService.csproj": {
+                "projectPath": "C:\\Users\\asall\\OneDrive\\Desktop\\GeeksApplication\\ScanIT\\backend\\ScanApi\\UserService\\UserService.csproj"
               }
             }
           }
@@ -62,6 +67,18 @@
               "target": "Package",
               "version": "[7.0.5, )"
             },
+            "Serilog": {
+              "target": "Package",
+              "version": "[2.12.0, )"
+            },
+            "Serilog.Extensions.Logging": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Serilog.Sinks.File": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
@@ -86,21 +103,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\user\\Desktop\\RJP\\ScanIT\\backend\\ScanApi\\UserService\\UserService.csproj": {
+    "C:\\Users\\asall\\OneDrive\\Desktop\\GeeksApplication\\ScanIT\\backend\\ScanApi\\UserService\\UserService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\RJP\\ScanIT\\backend\\ScanApi\\UserService\\UserService.csproj",
+        "projectUniqueName": "C:\\Users\\asall\\OneDrive\\Desktop\\GeeksApplication\\ScanIT\\backend\\ScanApi\\UserService\\UserService.csproj",
         "projectName": "UserService",
-        "projectPath": "C:\\Users\\user\\Desktop\\RJP\\ScanIT\\backend\\ScanApi\\UserService\\UserService.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\RJP\\ScanIT\\backend\\ScanApi\\UserService\\obj\\",
+        "projectPath": "C:\\Users\\asall\\OneDrive\\Desktop\\GeeksApplication\\ScanIT\\backend\\ScanApi\\UserService\\UserService.csproj",
+        "packagesPath": "C:\\Users\\asall\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\asall\\OneDrive\\Desktop\\GeeksApplication\\ScanIT\\backend\\ScanApi\\UserService\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\asall\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -108,6 +129,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -199,7 +221,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
