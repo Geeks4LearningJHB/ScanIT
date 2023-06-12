@@ -28,11 +28,11 @@ function AppNavigation() {
         <Stack.Screen name="Create" component={CreateProfile} /> 
         <Stack.Screen name="View" component={ViewProfile} />*/}
         <Stack.Screen name="View Others" component={viewProfiles} /> 
-        <Stack.Screen
+        {/* <Stack.Screen
           options={{ headerShown: false }}
           name="Login"
           component={Login}
-        />
+        /> */}
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="Payment" component={Payment} />
         <Stack.Screen
