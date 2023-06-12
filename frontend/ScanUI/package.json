@@ -11,7 +11,7 @@
   "dependencies": {
     "@expo/webpack-config": "^18.0.1",
     "@react-native-community/masked-view": "^0.1.11",
-    "@react-native-picker/picker": "2.4.8",
+    "@react-native-picker/picker": "^2.4.8",
     "@react-navigation/drawer": "^6.6.2",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
@@ -27,6 +27,7 @@
     "react-native-paper": "^5.8.0",
     "react-native-reanimated": "~2.14.4",
     "react-native-web": "~0.18.10",
+    "react-dom": "18.2.0"
     "react-native-webview": "11.26.0"
   },
   "devDependencies": {
