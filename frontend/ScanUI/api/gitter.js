@@ -1,13 +1,9 @@
 import api from "../Config/environment";
 
 export async function getAllProfiles() {
-  try {
-    const response = await fetch(`${api / user}`);
-    const jsonData = await response.json();
-    return jsonData;
-  } catch (error) {
-    console.error("Error:", error);
-  }
+  return await fetch(`${api}user`)
+      .then((response) => response.json())
+      .catch((err) => err);
 }
 
 export async function saveProfile(name, surname, username, password) {

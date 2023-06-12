@@ -2,14 +2,10 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
+import Payment from "../components/Profile/Payment";
 import viewProfiles from "../components/Profile/ViewProfiles";
 import Login from "../components/User/LogIn";
 import SignUp from "../components/User/SignUp";
-import Payment from "../components/Profile/Payment";
-import Home from "../components/Profile/Home";
-import CreateProfile from "../components/Profile/createProfile";
-import ViewProfile from "../components/Profile/ViewProfile";
-import viewProfiles from "../components/Profile/ViewProfiles";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
