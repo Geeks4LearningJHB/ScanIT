@@ -14,6 +14,7 @@ const ExternalStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-end",
   },
+ 
   controlls: {
     flex: 4,
     marginTop: 0,
@@ -69,6 +70,14 @@ const ExternalStyles = StyleSheet.create({
     margin: 10,
     marginTop: 20,
   },
+    image: (opacity) => ({
+    width: 100,
+    height: 100,
+    margin:10,
+    marginTop: 20,
+    opacity,
+    borderRadius: 50,
+  }),
 
   container: {
     padding: 20,

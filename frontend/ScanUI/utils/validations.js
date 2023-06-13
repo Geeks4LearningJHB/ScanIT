@@ -1,29 +1,19 @@
-export function isValidUserInput(
-  name,
-  surname,
-  email,
-  password,
-  confirmPassword
-) {
-  if (!isValidEmail()) return "email";
-  if (!validateLength()) return "length";
-  if (isEmpty(name, surname, email, password, confirmPassword)) return "empty";
-}
 
-const isValidEmail = () => {
-  return email.includes("@");
+export const passwordMismatch = (password, confirmPassword) => {
+  return confirmPassword !== password;
+};
+export const validateLength = (password) => {
+  return password.length < 6;
 };
 
-const validateLength = () => {
-  return password.length > 3;
-};
-
-const isEmpty = (name, surname, email, password, confirmPassword) => {
+export const isEmpty = (name, surname, email, password) => {
   return (
-    name === "" ||
-    surname === "" ||
-    email === "" ||
-    password === "" ||
-    confirmPassword === ""
+    name.length !== 0 ||
+    surname.length !== 0 ||
+    email.length !== 0 ||
+    password.length !== 0
   );
+};
+export const isValidEmail = (email) => {
+  return !email.includes("@");
 };

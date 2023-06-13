@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { View, TouchableOpacity, Text, TextInput, Image } from "react-native";
+import React, { useState,useEffect } from "react";
+import { View, TouchableOpacity, Text, TextInput, Image,Animated } from "react-native";
 import styles from "../Styles";
+
 
 const LogIn = ({ navigation }) => {
   const [username, setUsername] = useState("");
@@ -29,6 +30,7 @@ const LogIn = ({ navigation }) => {
       });
 
       if (response.ok) {
+        fadeOut
         // Login successful
         // You can navigate to the desired screen here
         navigation.navigate("Root", { screen: "Home" });
@@ -40,16 +42,36 @@ const LogIn = ({ navigation }) => {
     }
   };
 
-  const signInHandler = () => {
+  const signInHandler = () => {  
     navigation.navigate("SignUp");
   };
+  const opacity = useState(new Animated.Value(0))[0];
 
+  const fadeIn = () => {
+    Animated.timing(opacity, {
+      toValue: 1,
+      duration: 2000,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const fadeOut = () => {
+    Animated.timing(opacity, {
+      toValue: 0,
+      duration: 1000,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  useEffect(() => {
+    fadeIn();
+  }, []);
   return (
     <View style={styles.content}>
       <View style={styles.logo}>
         <Text style={styles.helloText}>Hello,</Text>
         <Text style={styles.welcomeText}>Welcome to ScanIT</Text>
-        <Image style={styles.image} source={require("../../assets/Scan.png")} />
+        <Animated.Image style={styles.image(opacity)} source={require("../../assets/Scan.png")} />
       </View>
 
       <View style={styles.controlls}>
