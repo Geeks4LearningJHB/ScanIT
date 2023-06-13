@@ -25,54 +25,52 @@ const SignUp = ({ navigation }) => {
 
   const handleSignUp = async (name, surname, email, password) => {
  
-    // const userData = {
-    //   name: name,
-    //   surname: surname,
-    //   email: email,
-    //   password: password
-    // };
-   // {
-      //    try {
-      //    const response = await fetch("back end endpoint", {
-      //   method: "POST",
-      //      headers: {
-      //        "Content-Type": "application/json",
-      //      },
-      //      body: JSON.stringify(userData),
-      //    });
-      //    if (response.ok) {
-      //      alert("Signup successful");
-      //       navigation.navigate("Login");
-      //      fadeOut();
-      //    } else {
-      //      alert("Signup failed");
-      //    }
-      //  } catch (error) {
-      //    console.error("Error:", error);
-      //   }
-   // }
+    const userData = {
+      name: name,
+      surname: surname,
+      email: email,
+      password: password
+    };
+   {
+         try {
+         const response = await fetch("back end endpoint", {
+        method: "POST",
+           headers: {
+             "Content-Type": "application/json",
+           },
+           body: JSON.stringify(userData),
+         });
+         if (response.ok) {
+           alert("Signup successful");
+            navigation.navigate("Login");
+           fadeOut();
+         } else {
+           alert("Signup failed");
+         }
+       } catch (error) {
+         console.error("Error:", error);
+        }
+   }
   };
 
   // ========================== Validations ===================================
  
   const handleValidations = (name, surname, email, password, confirmPassword) => {
    
-    //  if (!isEmpty(name, surname, email, password, confirmPassword)) {
-    //    alert("Please fill all the fields");
-    //  } else if (isValidEmail(email)) {
-    //    alert("Please enter a valid email");
-    //  } else if (validateLength(password)) {
-    //    alert("Please enter a password with at least 6 characters");
-    //  } else if (passwordMismatch(password,confirmPassword)) {
-    //    alert("Passwords do not match");
-    //  } else {
-
-    //   alert("Im in sign up")
-    //    handleSignUp(name, surname, email, password);
-    //  }
+     if (!isEmpty(name, surname, email, password, confirmPassword)) {
+       alert("Please fill all the fields");
+     } else if (isValidEmail(email)) {
+       alert("Please enter a valid email");
+     } else if (validateLength(password)) {
+       alert("Please enter a password with at least 6 characters");
+     } else if (passwordMismatch(password,confirmPassword)) {
+       alert("Passwords do not match");
+     } else {
+       handleSignUp(name, surname, email, password);
+     }
   };
 
-  //==============================================
+  //==================== Animation ==========================
   const opacity = useState(new Animated.Value(0))[0];
 
   const fadeIn = () => {
