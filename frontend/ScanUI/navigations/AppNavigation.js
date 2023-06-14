@@ -1,6 +1,7 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { SafeAreaView } from "react-native";
 import React from "react";
 import Payment from "../components/Profile/Payment";
 import viewProfiles from "../components/Profile/ViewProfiles";
@@ -19,6 +20,7 @@ function Root() {
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="My Profile" component={ViewProfile} />
       <Drawer.Screen name="View Others" component={viewProfiles} />
+      <Drawer.Screen name="Log Out" component={Login} options={{headerShown:false}}/>
     </Drawer.Navigator>
   );
 }
@@ -26,9 +28,8 @@ function Root() {
 function AppNavigation() {
   return (
     <NavigationContainer>
+     
       <Stack.Navigator>
-        {/* <Stack.Screen name="Create Profile" component={CreateProfile} /> */}
-
         <Stack.Screen
           options={{ headerShown: false }}
           name="Login"
@@ -39,7 +40,11 @@ function AppNavigation() {
           component={SignUp}
           options={{ headerShown: false }}
         />
-
+        <Stack.Screen
+          name="Create Profile"
+          component={CreateProfile}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen name="Payment" component={Payment} />
         <Stack.Screen
           name="Root"

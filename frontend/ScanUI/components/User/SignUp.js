@@ -31,26 +31,28 @@ const SignUp = ({ navigation }) => {
       email: email,
       password: password
     };
-   {
-         try {
-         const response = await fetch("back end endpoint", {
-        method: "POST",
-           headers: {
-             "Content-Type": "application/json",
-           },
-           body: JSON.stringify(userData),
-         });
-         if (response.ok) {
-           alert("Signup successful");
-            navigation.navigate("Login");
-           fadeOut();
-         } else {
-           alert("Signup failed");
-         }
-       } catch (error) {
-         console.error("Error:", error);
-        }
-   }
+    alert("All vlidations passed ")
+    navigation.navigate("Login");
+
+      //    try {
+      //    const response = await fetch("back end endpoint", {
+      //   method: "POST",
+      //      headers: {
+      //        "Content-Type": "application/json",
+      //      },
+      //      body: JSON.stringify(userData),
+      //    });
+      //    if (response.ok) {
+      //      alert("Signup successful");
+      //       navigation.navigate("Login");
+      //      fadeOut();
+      //    } else {
+      //      alert("Signup failed");
+      //    }
+      //  } catch (error) {
+      //    console.error("Error:", error);
+      //   }
+   
   };
 
   // ========================== Validations ===================================
@@ -84,8 +86,8 @@ const SignUp = ({ navigation }) => {
     fadeIn();
   }, []); 
   const signUp = () => {
-    navigation.navigate("Login");
-    //handleValidations(name, surname, email, password, confirmPassword);
+   
+    handleValidations(name, surname, email, password, confirmPassword);
   };
   return (
     <View style={styles.content}>

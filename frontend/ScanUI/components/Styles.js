@@ -14,7 +14,7 @@ const ExternalStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-end",
   },
- 
+
   controlls: {
     flex: 4,
     marginTop: 0,
@@ -70,10 +70,10 @@ const ExternalStyles = StyleSheet.create({
     margin: 10,
     marginTop: 20,
   },
-    image: (opacity) => ({
+  image: (opacity) => ({
     width: 100,
     height: 100,
-    margin:10,
+    margin: 10,
     marginTop: 20,
     opacity,
     borderRadius: 50,
@@ -86,11 +86,14 @@ const ExternalStyles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
+    alignSelf: "center",
   },
   label: {
     fontSize: 16,
     fontWeight: "bold",
-    marginBottom: 5,
+    marginLeft: 5,
+    marginBottom:5,
+    marginTop:5
   },
   input: {
     borderWidth: 1,
@@ -125,9 +128,11 @@ const ExternalStyles = StyleSheet.create({
     color: "#333",
   },
   selectProfilePictureButton: {
-    backgroundColor: "#007bff",
-    borderRadius: 5,
-    padding: 10,
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 8,
+    padding: 5,
     marginBottom: 10,
   },
   profilePicture: {
@@ -159,6 +164,97 @@ const ExternalStyles = StyleSheet.create({
     borderRadius: 5,
     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
     backgroundColor: "white",
+  },
+  //======================for testing part ================================
+  add: {
+    width: 20,
+    height: 20,
+    background: "red",
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+    borderRadius: "50%",
+    border: "1px solid gray",
+    alignItems: "center",
+    paddingBottom: 7,
+    backgroundColor: "black",
+    color: "white",
+  },
+  skillStyles: {
+    paddingLeft:5,
+    borderWidth: 2,
+    borderColor: 'lightgrey',
+    borderWidth:1,
+    width: "90%",
+    borderRadius:5,
+    marginBottom:10,
+    margin:"5%"
+  },
+  skillStyle: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    marginBottom: 20,
+    width: 150,
+    height: 20,
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+  },
+  headingStyle: {
+    fontSize: "15px",
+    fontWeight: "bold",
+    fontWeight: "bold",
+    marginBottom: 5,
+    marginTop: 5,
+    marginEnd: 3,
+  },
+  card: {
+    alignItems: "left",
+    padding: "5%",
+    width: "90%",
+    color:'green',
+    boxShadow:
+      "0px 4px 4px rgba(0, 0, 0, 0.25),0px 4px 4px rgba(0, 0, 0, 0.25)",
+    margin: "5%",
+    paddingBottom: "5%",
+  },
+  popUpButton: (BColor, TColor) => ({
+    width: 100,
+    height: 21,
+    boxShadow:
+      "0px 4px 4px rgba(0, 0, 0, 0.25),0px 4px 4px rgba(0, 0, 0, 0.25),0px 4px 4px rgba(0, 0, 0, 0.25)",
+    borderRadius: "5px",
+    alignItems: "center",
+    paddingBottom: 7,
+    backgroundColor: BColor,
+    color: TColor,
+    fontWeight: "bolder",
+    marginBottom: 9,
+  }),
+  expandIcon: {
+    color: "orange",
+    marginTop: 2,
+  },
+  popMenuIcon: {
+    marginStart: "95%",
+  },
+  popMenuOverlay: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0,0,0,0.5)",
+    opacity: "90%",
+  },
+
+  skillText: {
+    marginTop: 2,
+  },
+  TextArea: {
+    borderWidth: 1,
+    borderColor: "#ccc",
+    width: "100%",
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 10,
+
+    height: 100,
   },
 });
 export default ExternalStyles;

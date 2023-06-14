@@ -16,30 +16,31 @@ const LogIn = ({ navigation }) => {
   };
 
   const loginHandler = async () => {
-    try {
-      // Make an API request to your backend to validate the login
-      const response = await fetch("your-backend-api-url/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username,
-          password,
-        }),
-      });
+    navigation.navigate("Create Profile")
+    // try {
+    //   // Make an API request to your backend to validate the login
+    //   const response = await fetch("your-backend-api-url/login", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       username,
+    //       password,
+    //     }),
+    //   });
 
-      if (response.ok) {
-        fadeOut
-        // Login successful
-        // You can navigate to the desired screen here
-        navigation.navigate("Root", { screen: "Home" });
-      } else {
-        console.log("Invalid credentials");
-      }
-    } catch (error) {
-      console.log("Error logging in:", error);
-    }
+    //   if (response.ok) {
+    //     fadeOut
+    //     // Login successful
+    //     // You can navigate to the desired screen here
+    //     navigation.navigate("Root", { screen: "Home" });
+    //   } else {
+    //     console.log("Invalid credentials");
+    //   }
+    // } catch (error) {
+    //   console.log("Error logging in:", error);
+    // }
   };
 
   const signInHandler = () => {  
