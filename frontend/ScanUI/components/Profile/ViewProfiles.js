@@ -108,7 +108,7 @@ const ViewProfiles = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView showsVerticalScrollIndicator={false}>
+     
       <View style={styles.searchContainer}>
           
           <TextInput style={styles.searchInput}
@@ -124,6 +124,7 @@ const ViewProfiles = ({ navigation }) => {
             color="black"
           />
         </View>
+        <ScrollView showsVerticalScrollIndicator={false}>
 
         {data.profiles.map((item, index) => (
           <View key={index} style={styles.card}>
