@@ -150,6 +150,39 @@ const ExternalStyles = StyleSheet.create({
     borderRadius: 5,
     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
     backgroundColor: "white",
+    
   },
+
+  CardContent:{
+    flex:1,
+    flexDirection:"row",
+  },
+  ViewProfilesImage:{
+    borderRadius: 50,
+    width: 100,
+    height: 100,
+    marginVertical:10,
+    marginHorizontal:10,
+   },
+   textView:{
+      marginBottom:15,
+      marginTop:5,
+   },
+   
+searchContainer: {
+  flexDirection: "row",
+  alignItems: "center",
+  borderWidth: 1,
+  borderColor: "#ccc",
+  borderRadius: 5,
+  padding: 10,
+  marginVertical: 10,
+  width: "100%",
+},
+searchInput:{
+  width:"95%",
+  textDecorationLine:'none'
+
+},
 });
 export default ExternalStyles;

@@ -12,7 +12,7 @@ const LogIn = ({ navigation }) => {
 
   const usernameHandler = (val) => {
     setUsername(val);
-  };
+  };z
 
   const loginHandler = async () => {
     try {
