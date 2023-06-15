@@ -181,6 +181,7 @@ searchContainer: {
 },
 searchInput:{
   width:"95%",
+  textDecorationLine:'none'
 
 },
 });

@@ -27,7 +27,7 @@ function AppNavigation() {
     {/*  <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Create" component={CreateProfile} /> 
         <Stack.Screen name="View" component={ViewProfile} />*/}
-        <Stack.Screen name="View Others" component={viewProfiles} /> 
+        <Stack.Screen name="View Others" component={viewProfiles} options={{headerShown:false}}/> 
         {/* <Stack.Screen
           options={{ headerShown: false }}
           name="Login"
