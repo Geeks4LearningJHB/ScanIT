@@ -3,17 +3,21 @@ import axios from "axios";
 import * as ImagePicker from "expo-image-picker";
 import React, { useEffect, useState } from "react";
 import {
-  Image,
-  SafeAreaView,
   ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
   View,
-  Modal,
   FlatList,
 } from "react-native";
-
+import {
+  isNotEmpty,
+  isValidEmail,
+  isValidExperience,
+  isValidSkill,
+  phoneLength,
+  isNumeric,
+} from "../../utils/validations";
 import { SelectList } from "react-native-dropdown-select-list";
 import environment from "../../Config/environment";
 import styles from "../Styles";
@@ -29,7 +33,6 @@ const CreateProfile = ({ navigation }) => {
   const [houseAddress, setHouseAddress] = useState("");
   const [gender, setGender] = useState("");
   const [experience, setExperience] = useState("");
-  // const [education, setEducation] = useState([]);
   const [EducationInforArray, setEsducationInforArray] = useState([]);
   const [WorkInforArray, setWorkInforArray] = useState([]);
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -55,22 +58,49 @@ const CreateProfile = ({ navigation }) => {
   };
 
   const handleSaveProfile = async () => {
-    navigation.navigate("Root", { screen: "Home" });
     // try {
     //   // Prepare the user profile data to be saved
-    //   const userProfile = {
-    //     firstName,
-    //     lastName,
-    //     emailAddress,
-    //     houseAddress,
-    //     gender,
-    //     experience,
-    //     EducationInforArray,
-    //     phoneNumber,
-    //     skills,
-    //     professionalSummary,
-    //     profilePicture,
-    //   };
+    if (
+      isNotEmpty(
+        firstName,
+        lastName,
+        emailAddress,
+        houseAddress,
+        gender,
+        experience,
+        EducationInforArray,
+        phoneNumber,
+        skills,
+        professionalSummary,
+        profilePicture
+      )
+    ) {
+      if (!isValidEmail(emailAddress)) {
+        if (phoneLength(phoneNumber) && isNumeric(phoneNumber)) {
+          const userProfile = {
+            firstName,
+            lastName,
+            emailAddress,
+            houseAddress,
+            gender,
+            experience,
+            EducationInforArray,
+            phoneNumber,
+            skills,
+            professionalSummary,
+            profilePicture,
+          };
+          console.log(userProfile);
+          navigation.navigate("Root", { screen: "Home" });
+        } else {
+          alert("Check your phone number");
+        }
+      } else {
+        alert("Fill all the required fields @");
+      }
+    } else {
+      alert("Fill all the required fields");
+    }
 
     //   // Send the user profile data to the backend API for saving
     //   await axios.post("your-backend-api-url/profiles", userProfile);
@@ -135,7 +165,6 @@ const CreateProfile = ({ navigation }) => {
     const updatedSkills = skills.filter((item) => item.skill !== itemName);
     setSkills(updatedSkills);
   };
-  const [isMenuVisible, setMenuVisible] = useState(false);
 
   const [varsity, setVarsity] = useState("");
   const [period, setPeriod] = useState("");
@@ -171,11 +200,7 @@ const CreateProfile = ({ navigation }) => {
     const foundObject = WorkInforArray.find(
       (obj) => obj.company === newObj.company
     );
-    if (
-      newObj.company != "" &&
-      newObj.position != "" &&
-      newObj.duration != ""
-    ) {
+    if (isValidExperience(newObj)) {
       if (!foundObject) {
         setWorkInforArray((prevArray) => [...prevArray, newObj]);
       } else {
@@ -199,7 +224,7 @@ const CreateProfile = ({ navigation }) => {
       proficiency: proficiency,
     };
     const foundObject = skills.find((obj) => obj.skill === newObj.skill);
-    if (newObj.skill != "" && newObj.proficiency != "") {
+    if (isValidSkill(newObj)) {
       if (!foundObject) {
         setSkills((prevArray) => [...prevArray, newObj]);
       } else {
@@ -211,10 +236,16 @@ const CreateProfile = ({ navigation }) => {
   };
 
   //========================================================================
+  //========================================================================
+  //========================================================================
+  //========================================================================
+  //========================================================================
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Text style={styles.heading}>Create Profile</Text>
+        <View style={styles.header}>
+          <Text style={styles.heading}>Create Profile</Text>
+        </View>
 
         <Text style={styles.label}>First Name</Text>
         <TextInput
@@ -306,7 +337,9 @@ const CreateProfile = ({ navigation }) => {
                       Period : {data.duration}
                     </Text>
                   </View>
-                  <TouchableOpacity onPress={() => ExperienceHandleDelete(index)}>
+                  <TouchableOpacity
+                    onPress={() => ExperienceHandleDelete(index)}
+                  >
                     <AntDesign name="delete" size={24} color="black" />
                   </TouchableOpacity>
                 </View>
@@ -361,7 +394,9 @@ const CreateProfile = ({ navigation }) => {
                       Period : {data.period}
                     </Text>
                   </View>
-                  <TouchableOpacity onPress={() => EducationHandleDelete(index)}>
+                  <TouchableOpacity
+                    onPress={() => EducationHandleDelete(index)}
+                  >
                     <AntDesign name="delete" size={24} color="black" />
                   </TouchableOpacity>
                 </View>
@@ -407,7 +442,10 @@ const CreateProfile = ({ navigation }) => {
               renderItem={({ item }) => (
                 <View style={styles.skillStyle} key={item}>
                   <Text style={styles.skillText}>Skill Name: {item.skill}</Text>
-                  <TouchableOpacity style={styles.deleteButton} onPress={() => SkillHandleDelete(item.skill)}>
+                  <TouchableOpacity
+                    style={styles.deleteButton}
+                    onPress={() => SkillHandleDelete(item.skill)}
+                  >
                     <AntDesign name="delete" size={15} color="black" />
                   </TouchableOpacity>
                 </View>

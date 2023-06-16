@@ -92,8 +92,8 @@ const ExternalStyles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     marginLeft: 5,
-    marginBottom:5,
-    marginTop:5
+    marginBottom: 5,
+    marginTop: 5,
   },
   input: {
     borderWidth: 1,
@@ -179,14 +179,14 @@ const ExternalStyles = StyleSheet.create({
     color: "white",
   },
   skillStyles: {
-    paddingLeft:5,
+    paddingLeft: 5,
     borderWidth: 2,
-    borderColor: 'lightgrey',
-    borderWidth:1,
+    borderColor: "lightgrey",
+    borderWidth: 1,
     width: "90%",
-    borderRadius:5,
-    marginBottom:10,
-    margin:"5%"
+    borderRadius: 5,
+    marginBottom: 10,
+    margin: "5%",
   },
   skillStyle: {
     flex: 1,
@@ -209,7 +209,7 @@ const ExternalStyles = StyleSheet.create({
     alignItems: "left",
     padding: "5%",
     width: "90%",
-    color:'green',
+    color: "green",
     boxShadow:
       "0px 4px 4px rgba(0, 0, 0, 0.25),0px 4px 4px rgba(0, 0, 0, 0.25)",
     margin: "5%",
@@ -255,6 +255,14 @@ const ExternalStyles = StyleSheet.create({
     marginBottom: 10,
 
     height: 100,
+  },
+  header: {
+    top: 0,
+    height: 70,
+    paddingTop: 20,
+    width: "100%",
+    backgroundColor: "#FFAF42",
+    position: "sticky",
   },
 });
 export default ExternalStyles;
